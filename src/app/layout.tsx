@@ -19,7 +19,7 @@ export default function RootLayout({
       <body suppressHydrationWarning>
         <Navbar />
         <Sidebar />
-        <div className="flex mt-16 justify-center">{children}</div>
+        <main className="flex mt-16 ml-64 justify-center">{children}</main>
       </body>
     </html>
   );
