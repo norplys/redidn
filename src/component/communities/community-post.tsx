@@ -27,27 +27,42 @@ export function CommunityPost({
   postLink,
 }: CommunityPostProps) {
   return (
-    <Link href={postLink} className="grid">
-      <div>
-        <Community
-          communityName={communityName}
-          src={communityLogoImageLink}
-          imageClassName="h-8 w-8"
-          isPopular={false}
-        />
-        {` ${time}`}
-        <div>
-          <Link href={communityLink}>Join</Link>
-          <button>...</button>
+    <div className="grid gap-2">
+      <div className="flex justify-between">
+        <div className="flex justify-center items-center gap-2 text-xs text-gray-400">
+          <Community
+            communityName={communityName}
+            src={communityLogoImageLink}
+            imageClassName="h-8 w-8"
+            isPopular={false}
+            titleClassName="text-base text-primary"
+          />
+          ◕{` ${time}`}
+        </div>
+        <div className="flex justify-center items-center">
+          <Link
+          href={communityLink}
+          className="text-sm bg-blue-900 px-2 text-primary-foreground rounded-full"
+          >
+            Join
+          </Link>
+          <Button>...</Button>
         </div>
       </div>
-      <LazyImage src={media} alt={`${title} image`} />
+      <h1 className="font-semibold">{title}</h1>
+      {media && (
+        <LazyImage
+          src={media}
+          alt={`${title} image`}
+          className="w-full max-h-96 rounded-2xl"
+        />
+      )}
       <PostButton
         likesCount={likesCount}
         commentCount={commentCount}
         postLink={postLink}
       />
-    </Link>
+    </div>
   );
 }
 
@@ -59,7 +74,7 @@ type PostButtonProps = {
 
 function PostButton({ likesCount, commentCount, postLink }: PostButtonProps) {
   return (
-    <div>
+    <div className="flex">
       <div>
         <Button>^</Button>
         {likesCount}
@@ -67,7 +82,11 @@ function PostButton({ likesCount, commentCount, postLink }: PostButtonProps) {
       </div>
       <Button>{commentCount}</Button>
       <Button>Medal</Button>
-      <Link href={postLink}>Share</Link>
+      <Button
+      // href={postLink}
+      >
+        Share
+      </Button>
     </div>
   );
 }

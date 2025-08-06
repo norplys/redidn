@@ -5,13 +5,15 @@ type ButtonProps = {
   props?: ButtonHTMLAttributes<HTMLButtonElement>;
   classname?: string;
   children?: React.ReactNode;
+  isOnNav?: boolean;
 };
 
-export function Button({ props, classname, children }: ButtonProps) {
+export function Button({ props, classname, children, isOnNav }: ButtonProps) {
   return (
     <button
       className={clsx(
-        "hover:scale-105 py-2 px-4 rounded-full transition-transform duration-200",
+        isOnNav ? "py-2 px-4" : "px-2 py-1",
+        "hover:scale-105 rounded-full transition-transform duration-200",
         classname
       )}
       {...props}

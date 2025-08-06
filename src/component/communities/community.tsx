@@ -16,7 +16,7 @@ export function Community({
   memberCount,
   titleClassName,
   imageClassName,
-  isPopular,
+  isPopular
 }: CommuntiyProps) {
   return (
     <div className="flex items-center gap-2">

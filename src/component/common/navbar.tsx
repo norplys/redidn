@@ -19,11 +19,16 @@ export function Navbar() {
 function NavButton() {
   return (
     <div className="flex gap-2 text-sm font-semibold">
-      <Button classname="bg-gray-300 text-primary flex gap-2 items-center">
+      <Button
+        classname="bg-gray-300 text-primary flex gap-2 items-center"
+        isOnNav={true}
+      >
         <BsQrCodeScan className="text-xl" /> Get App
       </Button>
-      <Button classname="bg-primary-red text-primary-foreground">Log In</Button>
-      <Button classname="text-xl">
+      <Button classname="bg-primary-red text-primary-foreground" isOnNav={true}>
+        Log In
+      </Button>
+      <Button classname="text-xl" isOnNav={true}>
         <HiDotsHorizontal />
       </Button>
     </div>
